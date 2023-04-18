@@ -1,4 +1,20 @@
+## Admin UI Geektrust Challenge
+
+### Deployed [here](https://admin-bykjh6tdq-ezzypzzy.vercel.app/)
+
+
+## About The Project
+
+- This project is made as a challenge from Geektrust Frontend Challenge. Using instructions from [here](https://www.geektrust.com/coding/detailed/admin-ui)
+- This is a small Admin side user management dashboard which draws user data from [this](https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json) API Endpoint.
+- The website is mobile responsive as well.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Screenshots
+
+Main Screen
+![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681820486/Admin%20UI/home.jpg)
 
 ## Getting Started
 
@@ -22,17 +38,10 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Tech used
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React 18 + TypeScript setup using Next js
+- Axios - to fetch data from API
+- Tailwind CSS - for styling the components
+- React Toastify - for showing alerts on performing actions like Delete or Edit
+- React Icons - to look good
