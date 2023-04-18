@@ -16,6 +16,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Main Screen
 ![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681820486/Admin%20UI/home.jpg)
 
+Mobile View (iphone SE)
+![Home mobile](https://res.cloudinary.com/dubirhea4/image/upload/v1681841114/Admin%20UI/localhost_3000__iPhone_SE.jpg)
+
 ## Getting Started
 
 First, run the development server:
