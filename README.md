@@ -5,7 +5,7 @@
 
 ## About The Project
 
-- This project is made as a challenge from Geektrust Frontend Challenge. Using instructions from [here](https://www.geektrust.com/coding/detailed/admin-ui)
+- This project is a Geektrust Frontend Challenge. Using instructions from [here](https://www.geektrust.com/coding/detailed/admin-ui)
 - This is a small Admin side user management dashboard which draws user data from [this](https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json) API Endpoint.
 - The website is mobile responsive as well.
 - Checks window.innerWidth<600 and Shows only 3 pagination buttons instead of 5, Shows "Delete" button instead of "Delete Selected" and abbreviates user role to fit the narrow screens
