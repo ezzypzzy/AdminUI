@@ -39,7 +39,7 @@ const EditModal: React.FC<IProps> = ({
       {/* Shows the error message to be displayed after clicking on submit button if there is any */}
       {error.errorMsg != "" && (
         <div
-          className="absolute text-[red] top-[-32px] left-[20px] font-bold text-lg
+          className="absolute text-[red] top-[-32px] left-[20px] font-bold text-lg sm:text-sm sm:left-0
 				backdrop-filter backdrop-blur-sm" style={{ textShadow: '0 0 black' }}
         >
           {error.errorMsg}

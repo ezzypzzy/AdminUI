@@ -1,6 +1,6 @@
 // This component renders the pagination buttons in Footer section
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaAngleDoubleLeft,
   FaAngleLeft,
@@ -29,8 +29,37 @@ const Pagination: React.FC<IProps> = ({
   nextPage,
   previousPage,
 }) => {
+  const [viewportWidth, setViewportWidth] = useState("lg");
+
+  // This function provides our buttons knowledge of viewport
+  // to switch between either 5 or 3 buttons when required
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth < 500 ? "sm" : "lg");
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let numPageBtns = 5;
+  if (viewportWidth === "sm" || viewportWidth === "md") {
+    numPageBtns = 3;
+  }
+
+  // Calculate the start and end pages based on the current page
+  let startPage = Math.max(currentPage - Math.floor(numPageBtns / 2), 1);
+  let endPage = startPage + numPageBtns - 1;
+  if (endPage > Math.ceil(totalItems / itemsPerPage)) {
+    endPage = Math.ceil(totalItems / itemsPerPage);
+    startPage = Math.max(endPage - numPageBtns + 1, 1);
+  }
+
+  // Create an array of page button with value starting from startPage to endPage
   const pageBtns = [];
-  for (let i = 1; i <= 5; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     pageBtns.push(i);
   }
 
@@ -43,13 +72,14 @@ const Pagination: React.FC<IProps> = ({
       <FaAngleDoubleLeft
         className={`
         w-8 h-8 border border-[#1890ff] flex justify-center 
-        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold cursor-pointer
+        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold
         hover:bg-opacity-90 mx-2.5 md:mx-1.5 sm:md:mx-0.5
         ${currentPage === 1 && "bg-[white]"}
         ${currentPage === 1 && "border-[silver]"}
         ${currentPage === 1 && "text-[silver]"}
         ${currentPage != 1 && "bg-[#1890ff]"}
         ${currentPage != 1 && "text-[white]"}
+        ${currentPage != 1 && "cursor-pointer"}
         ${currentPage === 1 && "cursor-default"}
         `}
         onClick={() => {
@@ -61,13 +91,14 @@ const Pagination: React.FC<IProps> = ({
       <FaAngleLeft
         className={`
         w-8 h-8 border border-[#1890ff] flex justify-center
-        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold cursor-pointer
+        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold
         hover:bg-opacity-90 mx-2.5 md:mx-1.5 sm:md:mx-0.5
         ${currentPage === 1 && "bg-[white]"}
         ${currentPage === 1 && "border-[silver]"}
         ${currentPage === 1 && "text-[silver]"}
         ${currentPage !== 1 && "bg-[#1890ff]"}
         ${currentPage != 1 && "text-[white]"}
+        ${currentPage != 1 && "cursor-pointer"}
         ${currentPage === 1 && "cursor-default"}
         `}
         onClick={() => {
@@ -75,7 +106,7 @@ const Pagination: React.FC<IProps> = ({
         }}
       ></FaAngleLeft>
 
-      {/* Generating the 5 buttons with onClick functionality */}
+      {/* Generating the 5/3 buttons with onClick functionality */}
       {pageBtns.map((e: any) => (
         <div
           key={e}
@@ -102,7 +133,6 @@ const Pagination: React.FC<IProps> = ({
             "text-[white]"
           }
           ${currentPage == e && "bg-[white]" && "text-[#1890ff]"}
-          ${Math.ceil(totalItems / itemsPerPage) < e && "cursor-default"}
           `}
           onClick={() => {
             Math.ceil(totalItems / itemsPerPage) >= e && paginate(e);
@@ -116,7 +146,7 @@ const Pagination: React.FC<IProps> = ({
       <FaAngleRight
         className={`
         w-8 h-8 border border-[#1890ff] flex justify-center
-        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold cursor-pointer
+        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold
         hover:bg-opacity-90 mx-2.5 md:mx-1.5 sm:md:mx-0.5
         ${
           currentPage >= Math.ceil(totalItems / itemsPerPage) &&
@@ -132,6 +162,9 @@ const Pagination: React.FC<IProps> = ({
         }
         ${currentPage < Math.ceil(totalItems / itemsPerPage) && "bg-[#1890ff]"}
         ${currentPage < Math.ceil(totalItems / itemsPerPage) && "text-[white]"}
+        ${
+          currentPage < Math.ceil(totalItems / itemsPerPage) && "cursor-pointer"
+        }
         `}
         onClick={() => {
           currentPage < Math.ceil(totalItems / itemsPerPage) && nextPage();
@@ -142,7 +175,7 @@ const Pagination: React.FC<IProps> = ({
       with cursor not allowed */}
       <FaAngleDoubleRight
         className={`w-8 h-8 border border-[#1890ff] flex justify-center
-        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold cursor-pointer
+        items-center rounded rounded-[50%] mx-4 p-1.5 text-xl font-bold
         hover:bg-opacity-90 mx-2.5 md:mx-1.5 sm:md:mx-0.5 sm:md:mr-1
         ${
           currentPage >= Math.ceil(totalItems / itemsPerPage) &&
@@ -158,6 +191,9 @@ const Pagination: React.FC<IProps> = ({
         }
         ${currentPage < Math.ceil(totalItems / itemsPerPage) && "bg-[#1890ff]"}
         ${currentPage < Math.ceil(totalItems / itemsPerPage) && "text-[white]"}
+        ${
+          currentPage < Math.ceil(totalItems / itemsPerPage) && "cursor-pointer"
+        }
         `}
         onClick={() => {
           currentPage < Math.ceil(totalItems / itemsPerPage) &&

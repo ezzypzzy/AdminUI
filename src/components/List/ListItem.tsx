@@ -1,7 +1,7 @@
 // This component contains the List item or Row containing the details & actions
 // that can be performed on that item. These are Selecting, Editing and Deleting
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
 import "tailwindcss/tailwind.css";
@@ -34,6 +34,21 @@ const ListItem: React.FC<IProps> = ({
   setDeleteSelectedUsersArr,
   handleDeleteSelectedUsers,
 }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // This function provides our List Item (role) knowledge of viewport
+  // to switch to a abbreviated version of role when required
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 500);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = Number(event.target.value);
     if (event.target.checked) {
@@ -53,17 +68,19 @@ const ListItem: React.FC<IProps> = ({
       onClick={() => {
         editSelectedUserObj.id !== id && setEditSelectedUserObj({});
       }}
-    >
-      {/* Checkbox to select the List Item containing the selected user details */}
-      <CheckBox
-        value={id}
-        checked={deleteSelectedUsersArr.includes(Number(id))}
-        handleCheckboxChange={handleCheckboxChange}
-      />
+    > 
+      <div className={`w-[10%]`}>
+        {/* Checkbox to select the List Item containing the selected user details */}
+        <CheckBox
+          value={id}
+          checked={deleteSelectedUsersArr.includes(Number(id))}
+          handleCheckboxChange={handleCheckboxChange}
+        />
+      </div>
 
       {/* Component to render the row of user with details and action buttons to edit and delete */}
       <div
-        className={`w-[55%] h-[50px] text-[black] flex justify-between items-center relative lg:w-[85%]`}
+        className={`w-[90%] h-[50px] text-[black] flex justify-between items-center relative`}
       >
         {editSelectedUserObj.id == id && (
           <EditModal
@@ -78,12 +95,12 @@ const ListItem: React.FC<IProps> = ({
           />
         )}
 
-        <div className="text-left w-[33%] overflow-clip mx-1.5">{name}</div>
-        <div className="text-left w-[33%] overflow-clip mx-1.5">{email}</div>
-        <div className="text-left w-[33%] capitalize">{role}</div>
+        <div className="text-left w-[30%] break-words border-r-8 border-transparent overflow-hidden">{name}</div>
+        <div className="text-left w-[30%] sm:w-[40%] break-words border-r-8 border-transparent">{email}</div>
+        <div className="text-left w-[30%] sm:w-[20%] overflow-clip capitalize border-r-8 border-transparent">{isSmallScreen ? (role === 'admin' ? 'ADM' : 'MBR') : role}</div>
 
         <div
-          className="text-right w-[10%] flex"
+          className="text-left w-[10%] min-w-[56px] pr-2 flex"
           onClick={(e: any) => {
             e.stopPropagation();
           }}

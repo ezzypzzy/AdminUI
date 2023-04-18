@@ -29,21 +29,23 @@ const ListHeader: React.FC<IProps> = ({
     <div
       className="w-[100%] h-[50px] flex justify-center items-center relative border border-[silver] border-b-1 border-l-0 border-r-0 border-t-0"
     >
-      <CheckBox
-        value={0}
-        checked={deleteSelectedUsersArr.length === showData.length}
-        handleCheckboxChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          deleteSelectedUsersArr.length === showData.length
-            ? setDeleteSelectedUsersArr([])
-            : setDeleteSelectedUsersArr(showData.map((e: any) => Number(e.id)));
-        }}
-      />
+      <div className={`w-[10%]`}>
+        <CheckBox
+          value={0}
+          checked={deleteSelectedUsersArr.length === showData.length}
+          handleCheckboxChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            deleteSelectedUsersArr.length === showData.length
+              ? setDeleteSelectedUsersArr([])
+              : setDeleteSelectedUsersArr(showData.map((e: any) => Number(e.id)));
+          }}
+        />
+      </div>
 
-      <div className="w-[55%] text-[black] flex justify-between items-center relative font-black lg:w-[85%] sm:w-[95%]">
-        <div className="text-left w-[33%]">Name</div>
-        <div className="text-left w-[33%]">Email</div>
-        <div className="text-left w-[33%]">Role</div>
-        <div className="text-left w-[10%]">Actions</div>
+      <div className="w-[90%] text-[black] flex justify-between items-center relative font-black">
+        <div className="text-left w-[30%]">Name</div>
+        <div className="text-left w-[30%] sm:w-[40%]">Email</div>
+        <div className="text-left w-[30%] sm:w-[20%]">Role</div>
+        <div className="text-left w-[10%] min-w-[56px]">Actions</div>
       </div>
     </div>
   );
