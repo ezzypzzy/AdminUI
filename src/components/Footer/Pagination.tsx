@@ -35,7 +35,7 @@ const Pagination: React.FC<IProps> = ({
   // to switch between either 5 or 3 buttons when required
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth < 500 ? "sm" : "lg");
+      setViewportWidth(window.innerWidth < 600 ? "sm" : "lg");
     };
     handleResize();
     window.addEventListener("resize", handleResize);

@@ -40,7 +40,7 @@ const ListItem: React.FC<IProps> = ({
   // to switch to a abbreviated version of role when required
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 500);
+      setIsSmallScreen(window.innerWidth < 600);
     };
     handleResize();
     window.addEventListener("resize", handleResize);

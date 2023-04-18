@@ -17,7 +17,7 @@ const DeleteButton: React.FC<IProps> = ({ onClick, disabled }) => {
   // to switch to a truncated version of button when required
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 500);
+      setIsSmallScreen(window.innerWidth < 600);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
