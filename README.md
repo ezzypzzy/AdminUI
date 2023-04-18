@@ -15,10 +15,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Screenshots
 
 Main Screen
-![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681820486/Admin%20UI/home.jpg)
+![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/home.jpg)
 
-Mobile View (iphone SE)
-![Home mobile](https://res.cloudinary.com/dubirhea4/image/upload/v1681841114/Admin%20UI/localhost_3000__iPhone_SE.jpg)
+Mobile View (pixel 5)
+![Home mobile](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/admin-ui-tawny.vercel.app__Pixel_5.jpg)
 
 ## Getting Started
 
