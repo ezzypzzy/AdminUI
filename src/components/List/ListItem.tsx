@@ -14,12 +14,12 @@ interface IProps {
   name: string;
   email: string;
   role: string;
-  handleDeleteSelectedUsers: (arr: any) => void;
-  deleteSelectedUsersArr: any;
-  handleEditSelectedUser: (obj: any) => void;
-  setDeleteSelectedUsersArr: any;
   editSelectedUserObj: any;
   setEditSelectedUserObj: any;
+  handleEditSelectedUser: (obj: any) => void;
+  deleteSelectedUsersArr: any;
+  setDeleteSelectedUsersArr: any;
+  handleDeleteSelectedUsers: (arr: any) => void;
 }
 
 const ListItem: React.FC<IProps> = ({
@@ -27,12 +27,12 @@ const ListItem: React.FC<IProps> = ({
   name,
   email,
   role,
-  handleDeleteSelectedUsers,
-  deleteSelectedUsersArr,
-  handleEditSelectedUser,
-  setDeleteSelectedUsersArr,
   editSelectedUserObj,
   setEditSelectedUserObj,
+  handleEditSelectedUser,
+  deleteSelectedUsersArr,
+  setDeleteSelectedUsersArr,
+  handleDeleteSelectedUsers,
 }) => {
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = Number(event.target.value);

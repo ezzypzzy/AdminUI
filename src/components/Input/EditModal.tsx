@@ -9,18 +9,18 @@ interface IProps {
   name: string;
   role: string;
   email: string;
+  editSelectedUserObj: any;
   setEditSelectedUserObj: (obj: any) => void;
   handleEditSelectedUser: (obj: any) => void;
-  editSelectedUserObj: any;
 }
 
 const EditModal: React.FC<IProps> = ({
   name,
   role,
   email,
+  editSelectedUserObj,
   setEditSelectedUserObj,
   handleEditSelectedUser,
-  editSelectedUserObj,
 }) => {
   // error is a state-variable that is used to handle errors that may occur when typing input fields during the save process
   // The edit request will be successful only if error object is empty

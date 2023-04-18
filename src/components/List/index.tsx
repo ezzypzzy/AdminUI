@@ -8,23 +8,23 @@ import { SearchBox } from "..";
 interface IProps {
   showData: any;
   fetchJson: (text: string) => void;
-  handleDeleteSelectedUsers: (arr: any) => void;
+  editSelectedUserObj: any;
+  setEditSelectedUserObj: React.Dispatch<SetStateAction<any>>;
   handleEditSelectedUser: (obj: any) => void;
   deleteSelectedUsersArr: any;
   setDeleteSelectedUsersArr: React.Dispatch<SetStateAction<any>>;
-  editSelectedUserObj: any;
-  setEditSelectedUserObj: React.Dispatch<SetStateAction<any>>;
+  handleDeleteSelectedUsers: (arr: any) => void;
 }
 
 const List: React.FC<IProps> = ({
   showData,
   fetchJson,
-  handleDeleteSelectedUsers,
+  editSelectedUserObj,
+  setEditSelectedUserObj,
   handleEditSelectedUser,
   deleteSelectedUsersArr,
   setDeleteSelectedUsersArr,
-  editSelectedUserObj,
-  setEditSelectedUserObj,
+  handleDeleteSelectedUsers,
 }) => {
   return (
     <div className="w-[100%] mt-[10px] flex flex-col items-center justify-center border-0">

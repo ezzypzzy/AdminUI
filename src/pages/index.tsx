@@ -44,12 +44,14 @@ export default function Home() {
         "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
       );
       const data = response.data;
-      setUserData(data);
-      setPersistingData(data);
-      // useEffect hook with fetchJson as a dependency is called once the component mounts
-      // and also when the currentPage changes (Toast is showing two times --> FIX THIS)
-      // toast.success('Users loaded from geektrust API');
-      console.log('The 404 error above is caused by importing google fonts and is of no concern to the functionality of the project');
+      if (data.length > 0) {
+        setUserData(data);
+        setPersistingData(data);
+        // useEffect hook with fetchJson as a dependency is called once the component mounts
+        // and also when the currentPage changes (Toast is showing two times --> FIX THIS)
+        // toast.info('Users loaded from geektrust API');
+        console.log('The 404 error above is caused by importing google fonts and is of no concern to the functionality of the project');
+      }
     } catch (e: unknown) {
       console.log((e as Error).message);
       toast.error('An error occurred while fetching data');
