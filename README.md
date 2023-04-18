@@ -1,6 +1,6 @@
 ## Admin UI Geektrust Challenge
 
-### Deployed [here](https://admin-ui-tawny.vercel.app/)
+### Deployed [here]([https://admin-ui-tawny.vercel.app/](https://admin-ui-tawny.vercel.app/))
 
 
 ## About The Project
