@@ -95,9 +95,9 @@ const ListItem: React.FC<IProps> = ({
           />
         )}
 
-        <div className="text-left w-[30%] break-words border-r-8 border-transparent overflow-hidden">{name}</div>
-        <div className="text-left w-[30%] sm:w-[40%] break-words border-r-8 border-transparent">{email}</div>
-        <div className="text-left w-[30%] sm:w-[20%] overflow-clip capitalize border-r-8 border-transparent">{isSmallScreen ? (role === 'admin' ? 'ADM' : 'MBR') : role}</div>
+        <div className="text-left w-[30%] max-h-[50px] break-words border-r-8 border-transparent overflow-hidden">{name}</div>
+        <div className="text-left w-[30%] max-h-[50px] sm:w-[40%] break-words border-r-8 border-transparent">{email}</div>
+        <div className="text-left w-[30%] max-h-[50px] sm:w-[20%] overflow-clip capitalize border-r-8 border-transparent">{isSmallScreen ? (role === 'admin' ? 'ADM' : 'MBR') : role}</div>
 
         <div
           className="text-left w-[10%] min-w-[56px] pr-2 flex"
