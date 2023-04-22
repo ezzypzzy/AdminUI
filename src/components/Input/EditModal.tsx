@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
-
+import InputField from "./InputField";
 import "tailwindcss/tailwind.css";
 
 interface IProps {
   name: string;
-  role: string;
   email: string;
+  role: string;
   editSelectedUserObj: any;
   setEditSelectedUserObj: (obj: any) => void;
   handleEditSelectedUser: (obj: any) => void;
@@ -40,34 +40,30 @@ const EditModal: React.FC<IProps> = ({
       {error.errorMsg != "" && (
         <div
           className="absolute text-[red] top-[-32px] left-[20px] font-bold text-lg sm:text-sm sm:left-0
-				backdrop-filter backdrop-blur-sm" style={{ textShadow: '0 0 black' }}
+				backdrop-filter backdrop-blur-sm"
+          style={{ textShadow: "0 0 black" }}
         >
           {error.errorMsg}
         </div>
       )}
 
-      {/* Input field to edit name of user */}
-      <label className="text-left text-[gray] w-[80%] mt-4">Name</label>
-      <input
-        className="text-left w-[80%] rounded rounded-[0.5rem] p-1 outline-none border-2 pl-4 mx-2 mb-4 mt-1"
+      <InputField
+        label="Name"
+        name="name"
         value={editSelectedUserObj.name}
-        onChange={(e: any) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setEditSelectedUserObj({
             ...editSelectedUserObj,
             name: e.target.value,
           });
         }}
-        name="name"
       />
 
-      {/* Input field to edit email of user */}
-      <label className="text-left text-[gray] w-[80%]">Email</label>
-      <input
-        className="text-left w-[80%] rounded rounded-[0.5rem] p-1 outline-none border-2 pl-4 mr-2 mb-4 mt-1"
+      <InputField
+        label="Email"
         name="email"
-        type={email}
         value={editSelectedUserObj.email}
-        onChange={(e: any) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setEditSelectedUserObj({
             ...editSelectedUserObj,
             email: e.target.value,
@@ -75,25 +71,24 @@ const EditModal: React.FC<IProps> = ({
         }}
       />
 
-      {/* Input field to edit the role of user */}
-      <label className="text-left text-[gray] w-[80%]">Role</label>
-      <input
-        className="text-left w-[80%] rounded rounded-[0.5rem] p-1 outline-none border-2 pl-4 mr-2 mb-4 mt-1"
+      <InputField
+        label="Role"
         name="role"
         value={editSelectedUserObj.role}
-        onChange={(e: any) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setEditSelectedUserObj({
             ...editSelectedUserObj,
             role: e.target.value,
           });
         }}
       />
+
       <div className="text-center justify-center w-[10%] flex">
         <div
           className="text-xl text-[white] bg-[#1890ff] border-[#1890ff] border-2 rounded
-					rounded-full mb-4 py-1 px-3 cursor-pointer hover:bg-opacity-90"
+					rounded-full mb-4 mt-2 py-1 px-3 cursor-pointer hover:bg-opacity-90"
           onClick={() => {
-						// Check if any field is empty
+            // Check if any field is empty
             if (
               editSelectedUserObj.role === "" ||
               editSelectedUserObj.email === "" ||
@@ -102,21 +97,19 @@ const EditModal: React.FC<IProps> = ({
               setError({ errorMsg: "* One or more fields are empty" });
             }
 
-						// Check if name value entered has only string characters in it
-            else if (
-							!(/^[a-zA-Z\s]+$/.test(editSelectedUserObj.name))
-            ) {
+            // Check if name value entered has only string characters in it
+            else if (!/^[a-zA-Z\s]+$/.test(editSelectedUserObj.name)) {
               setError({ errorMsg: "* Name can only have string characters" });
             }
 
-						// Check if email value entered is a valid email format
+            // Check if email value entered is a valid email format
             else if (
-							!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(editSelectedUserObj.email))
+              !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(editSelectedUserObj.email)
             ) {
               setError({ errorMsg: "* Please enter a valid email address" });
             }
 
-						// Check if role value entered is either "admin" or "member"
+            // Check if role value entered is either "admin" or "member"
             else if (
               editSelectedUserObj.role != "member" &&
               editSelectedUserObj.role != "admin"

@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "tailwindcss/tailwind.css";
 import styles from "../styles/Home.module.css";
+import { act } from "@testing-library/react";
 
 import List from "../components/List/index";
 import Pagination from "../components/Footer/Pagination";
@@ -45,16 +46,22 @@ export default function Home() {
       );
       const data = response.data;
       if (data.length > 0) {
-        setUserData(data);
-        setPersistingData(data);
+        // The act() function ensures that your state updates are properly handled in your tests
+        act(() => {
+          setUserData(data);
+          setPersistingData(data);
+        });
         // useEffect hook with fetchJson as a dependency is called once the component mounts
         // and also when the currentPage changes (Toast is showing two times --> FIX THIS)
         // toast.info('Users loaded from geektrust API');
-        console.log('The 404 error above is caused by importing google fonts and is of no concern to the functionality of the project');
+        // console.log(
+        //   "The 404 error above is caused by importing google fonts and is of no concern to the functionality of the project"
+        // );
       }
     } catch (e: unknown) {
       console.log((e as Error).message);
-      toast.error('An error occurred while fetching data');
+      await toast.error("An error occurred while fetching data");
+      throw e;
     }
   };
 
@@ -97,7 +104,7 @@ export default function Home() {
     );
 
     setDeleteSelectedUsersArr([]);
-    toast.error(`Deleted ${arr.length} ${arr.length > 1 ? 'users' : 'user'}`);
+    toast.error(`Deleted ${arr.length} ${arr.length > 1 ? "users" : "user"}`);
   };
 
   // handleEditSelectedUser is used to edit the selected user
@@ -112,7 +119,7 @@ export default function Home() {
     const changedProperties = getChangedProperties(originalUser, obj);
     setEditSelectedUserObj({});
 
-    const message = `Updated ${changedProperties.join(', ')} for ${obj.name}`;
+    const message = `Updated ${changedProperties.join(", ")} for ${obj.name}`;
     toast.success(message);
   };
 
@@ -126,7 +133,7 @@ export default function Home() {
       }
     }
     return changedProperties;
-  }  
+  }
 
   // last_item_index, first_item_index and current_items are the non-state-variables used for pagination
   const last_item_index = currentPage * itemsPerPage;
@@ -157,7 +164,8 @@ export default function Home() {
         <meta name="description" content="Geektrust frontend assignment" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
-          @import url(&apos;https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap&apos;);
+          @import
+          url(&apos;https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap&apos;);
         </style>
       </Head>
 

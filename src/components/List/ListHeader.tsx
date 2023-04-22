@@ -42,10 +42,10 @@ const ListHeader: React.FC<IProps> = ({
       </div>
 
       <div className="w-[90%] text-[black] flex justify-between items-center relative font-black">
-        <div className="text-left w-[30%]">Name</div>
-        <div className="text-left w-[30%] sm:w-[40%]">Email</div>
-        <div className="text-left w-[30%] sm:w-[20%]">Role</div>
-        <div className="text-left w-[10%] min-w-[56px]">Actions</div>
+        <div className="text-left w-[30%] font-black">Name</div>
+        <div className="text-left w-[30%] sm:w-[40%] font-black">Email</div>
+        <div className="text-left w-[30%] sm:w-[20%] font-black">Role</div>
+        <div className="text-left w-[10%] min-w-[56px] font-black">Actions</div>
       </div>
     </div>
   );
