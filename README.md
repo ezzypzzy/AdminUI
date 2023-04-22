@@ -9,6 +9,7 @@
 - This is a small Admin side user management dashboard which draws user data from [this](https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json) API Endpoint.
 - The website is mobile responsive as well.
 - Checks window.innerWidth<600 and Shows only 3 pagination buttons instead of 5, Shows "Delete" button instead of "Delete Selected" and abbreviates user role to fit the narrow screens
+- Implemented a few of the important integration tests with Jest
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
