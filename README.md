@@ -5,7 +5,7 @@
 
 ## About The Project
 
-- This project is made as a challenge from Geektrust Frontend Challenge. Using instructions from [here](https://www.geektrust.com/coding/detailed/admin-ui)
+- This project is a Geektrust Frontend Challenge. Using instructions from [here](https://www.geektrust.com/coding/detailed/admin-ui)
 - This is a small Admin side user management dashboard which draws user data from [this](https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json) API Endpoint.
 - The website is mobile responsive as well.
 - Checks window.innerWidth<600 and Shows only 3 pagination buttons instead of 5, Shows "Delete" button instead of "Delete Selected" and abbreviates user role to fit the narrow screens
@@ -15,10 +15,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Screenshots
 
 Main Screen
-![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681820486/Admin%20UI/home.jpg)
+![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/home.jpg)
 
-Mobile View (iphone SE)
-![Home mobile](https://res.cloudinary.com/dubirhea4/image/upload/v1681841114/Admin%20UI/localhost_3000__iPhone_SE.jpg)
+Mobile View (pixel 5)
+![Home mobile](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/admin-ui-tawny.vercel.app__Pixel_5.jpg)
 
 ## Getting Started
 
