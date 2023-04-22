@@ -5,7 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "tailwindcss/tailwind.css";
 import styles from "../styles/Home.module.css";
-import { act } from "@testing-library/react";
 
 import List from "../components/List/index";
 import Pagination from "../components/Footer/Pagination";
@@ -47,10 +46,8 @@ export default function Home() {
       const data = response.data;
       if (data.length > 0) {
         // The act() function ensures that your state updates are properly handled in your tests
-        act(() => {
-          setUserData(data);
-          setPersistingData(data);
-        });
+        setUserData(data);
+        setPersistingData(data);
         // useEffect hook with fetchJson as a dependency is called once the component mounts
         // and also when the currentPage changes (Toast is showing two times --> FIX THIS)
         // toast.info('Users loaded from geektrust API');
