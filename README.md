@@ -55,3 +55,6 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 PERFECT Badges and Score
 ![Score](https://res.cloudinary.com/dubirhea4/image/upload/v1682410736/Admin%20UI/score.png)
+
+### Overall Feedback
+The UI is very well designed. The UI code is modularized and have adequate components. UX is really good. Areas of Improvement:
