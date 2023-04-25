@@ -15,6 +15,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Screenshots
 
+Badges and Score
+![Score](https://res.cloudinary.com/dubirhea4/image/upload/v1682410736/Admin%20UI/score.png)
+
 Main Screen
 ![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/home.jpg)
 
