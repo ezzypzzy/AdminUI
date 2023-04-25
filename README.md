@@ -15,9 +15,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Screenshots
 
-Badges and Score
-![Score](https://res.cloudinary.com/dubirhea4/image/upload/v1682410736/Admin%20UI/score.png)
-
 Main Screen
 ![Home](https://res.cloudinary.com/dubirhea4/image/upload/v1681843477/Admin%20UI/home.jpg)
 
@@ -53,3 +50,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - Tailwind CSS - for styling the components
 - React Toastify - for showing alerts on performing actions like Delete or Edit
 - React Icons - to look good
+
+## Achievements
+
+PERFECT Badges and Score
+![Score](https://res.cloudinary.com/dubirhea4/image/upload/v1682410736/Admin%20UI/score.png)
